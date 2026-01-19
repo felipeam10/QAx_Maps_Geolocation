@@ -185,8 +185,8 @@ export default function OrphanagesMap() {
 
     data.append("name", name);
     data.append("description", description);
-    data.append("latitude", String(localStorage.getItem("hope:latitude")));
-    data.append("longitude", String(localStorage.getItem("hope:longitude")));
+    data.append("latitude", selectedPosition[0]);
+    data.append("longitude", selectedPosition[1]);
     data.append("opening_hours", opening_hours);
     data.append("open_on_weekends", String(open_on_weekends));
 
