@@ -1,4 +1,5 @@
 import data from '../fixtures/orphaneges.json';
+//import { faker } from '@faker-js/faker';
 
 describe('Cadastro Orfanatos', () => {
   
@@ -7,11 +8,15 @@ describe('Cadastro Orfanatos', () => {
     
     const orphanageData = data.create;
 
+    cy.deleteMany({name: orphanageData.name}, {collection: 'orphanages'});
+
     cy.visitWithMockGeolocation('http://localhost:3000/orphanages/create');
     cy.get('legend')
         .should('be.visible')
         .should('have.text', 'Cadastro');
 
+    cy.setMapPosition(orphanageData.position);
+    
     cy.get('input[name="name"]')
         .type(orphanageData.name);
     
@@ -31,6 +36,11 @@ describe('Cadastro Orfanatos', () => {
         .click();
 
   });
+});
+
+Cypress.Commands.add('setMapPosition', (position) => {
+  window.localStorage.setItem('hope-qa:latitude', position.latitude);
+  window.localStorage.setItem('hope-qa:longitude', position.longitude);
 });
 
 Cypress.Commands.add('visitWithMockGeolocation', (url, latitude = -23.5276158, longitude = -46.6810411) => {
