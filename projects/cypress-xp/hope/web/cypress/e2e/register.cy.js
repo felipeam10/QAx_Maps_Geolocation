@@ -4,8 +4,6 @@ import data from '../fixtures/orphaneges.json';
 describe('Cadastro Orfanatos', () => {
   
   it('should be able to register a mew orphanage', () => {
-    //cy.visit('http://localhost:3000/orphanages/create');
-    
     const orphanageData = data.create;
 
     cy.deleteMany({name: orphanageData.name}, {collection: 'orphanages'});
@@ -34,6 +32,10 @@ describe('Cadastro Orfanatos', () => {
     
     cy.get('.save-button')
         .click();
+
+    cy.get('.swal2-html-container')
+        .should('be.visible')
+        .should('have.text', 'Orfanato cadastrado com sucesso.');
 
   });
 });
