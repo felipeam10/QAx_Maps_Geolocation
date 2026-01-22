@@ -3,22 +3,24 @@
     "name": "Orfanato Esperança Viva",
     "description": "O Orfanato Esperança Viva acolhe crianças e adolescentes em situação de vulnerabilidade social, oferecendo moradia, alimentação, educação e apoio psicológico.",
     "opening_hours": "08:00 - 18:00",
-    "open_on_weekends": "Sim",
+    "open_on_weekends": "Não",
     "position": {
       "latitude": -23.5276158,
       "longitude": -46.6810411
     }
   },
-  "create2":{
+
+  "duplicate":{
     "name": "Lar dos Pequenos Anjos",
-    "description": "O Lar dos Pequenos Anjos é uma instituição dedicada ao cuidado de crianças órfãs, proporcionando assistência integral, lazer, acompanhamento escolar e atividades culturais. Buscamos garantir que cada criança tenha acesso a oportunidades de crescimento saudável, respeito e dignidade, além de apoio emocional constante.",
+    "description": "O Lar dos Pequenos Anjos é uma instituição dedicada ao cuidado de crianças órfãs, proporcionando assistência integral, lazer, acompanhamento escolar e atividades culturais.",
     "opening_hours": "07:30 - 17:30",
-    "open_on_weekends": "Não",
+    "open_on_weekends": "Sim",
      "position": {
       "latitude": -23.5976158,
       "longitude": -46.6010411
     }
   },
+  
   "create3":{
     "name": "Casa do Sol Nascente",
     "description": "A Casa do Sol Nascente oferece abrigo temporário e permanente para crianças e adolescentes em situação de risco. Contamos com uma equipe multidisciplinar que trabalha para garantir o bem-estar físico e emocional dos acolhidos, promovendo a reintegração familiar sempre que possível e incentivando a autonomia dos jovens.",
