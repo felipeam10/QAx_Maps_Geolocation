@@ -15,3 +15,25 @@ Cypress.Commands.add('visitWithMockGeolocation', (url, latitude = -23.5276158, l
     }
   });
 });
+
+Cypress.Commands.add('postOrphanage', (orphanage) => {
+  
+const formData = new FormData();
+formData.append('name', orphanage.name);
+formData.append('description', orphanage.description);
+formData.append('latitude', orphanage.position.latitude);
+formData.append('longitude', orphanage.position.longitude);
+formData.append('opening_hours', orphanage.opening_hours);
+formData.append('open_on_weekends', true);
+  
+  cy.request({
+    url: 'http://localhost:3333/orphanages',
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: formData
+  }).then((response) => {
+    expect(response.status).to.eq(201);
+  }); 
+})
