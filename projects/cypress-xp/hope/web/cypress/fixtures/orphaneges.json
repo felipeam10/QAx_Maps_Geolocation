@@ -7,7 +7,8 @@
     "position": {
       "latitude": -23.5276158,
       "longitude": -46.6810411
-    }
+    },
+    "image": "kids-playground-1.png"
   },
 
   "duplicate":{
@@ -18,7 +19,8 @@
      "position": {
       "latitude": -23.5976158,
       "longitude": -46.6010411
-    }
+    },
+    "image": "kids-playground-2.png"
   },
   
   "create3":{
@@ -29,6 +31,7 @@
     "position": {
       "latitude": -23.4976158,
       "longitude": -46.7010411
-    }
+    },
+    "image": "kids-playground-3.png"
   }
 }

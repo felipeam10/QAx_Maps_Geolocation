@@ -22,7 +22,7 @@ class CreatePage {
             .type(orphanageData.description);
 
         cy.get('input[type="file"]')
-            .selectFile('cypress/fixtures/images/kids-playground-1.png', { force: true });
+            .selectFile('cypress/fixtures/images/' + orphanageData.image, { force: true });
 
         cy.get('#opening_hours')
             .type(orphanageData.opening_hours);
