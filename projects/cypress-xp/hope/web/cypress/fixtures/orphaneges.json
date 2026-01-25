@@ -5,8 +5,8 @@
     "opening_hours": "08:00 - 18:00",
     "open_on_weekends": "Não",
     "position": {
-      "latitude": -23.5276158,
-      "longitude": -46.6810411
+      "latitude": -18.888782, 
+      "longitude": -48.294843
     },
     "image": "kids-playground-1.png"
   },
@@ -17,20 +17,20 @@
     "opening_hours": "07:30 - 17:30",
     "open_on_weekends": "Sim",
      "position": {
-      "latitude": -23.5976158,
-      "longitude": -46.6010411
+      "latitude": -18.891403, 
+      "longitude": -48.214097
     },
     "image": "kids-playground-2.png"
   },
   
-  "create3":{
+  "map":{
     "name": "Casa do Sol Nascente",
-    "description": "A Casa do Sol Nascente oferece abrigo temporário e permanente para crianças e adolescentes em situação de risco. Contamos com uma equipe multidisciplinar que trabalha para garantir o bem-estar físico e emocional dos acolhidos, promovendo a reintegração familiar sempre que possível e incentivando a autonomia dos jovens.",
+    "description": "A Casa do Sol Nascente oferece abrigo temporário e permanente para crianças e adolescentes em situação de risco. Contamos com uma equipe multidisciplinar que trabalha para garantir o bem-estar físico.",
     "opening_hours": "09:00 - 19:00",
     "open_on_weekends": "Sim",
     "position": {
-      "latitude": -23.4976158,
-      "longitude": -46.7010411
+      "latitude": -18.944092, 
+      "longitude": -48.271956
     },
     "image": "kids-playground-3.png"
   }
