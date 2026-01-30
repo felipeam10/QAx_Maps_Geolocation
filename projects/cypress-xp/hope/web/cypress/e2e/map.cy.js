@@ -13,32 +13,9 @@ describe('Mapa', () => {
 
     cy.postOrphanage(orphanageData);
     
-    cy.visit('http://localhost:3000/map');
-    
-    cy.get('.leaflet-marker-icon').as('mapList');
-    cy.get('@mapList').each((element, index, list) => {
-      cy.get('@mapList')
-        .eq(index)
-        .click({force: true});
-        cy.wait(1000);
-        cy.get('.leaflet-popup-content').as('divName');
-        cy.get('@divName')
-          .invoke('text')
-          .then((txt)=> {
-            cy.log(txt);
-            if(txt === orphanageData.name){
-              cy.get('@mapList')
-                .eq(index)
-                .as('foundItem');
-              cy.log('Found orphanage - ' + orphanageData.name);
-            }
-          })
-    })
-    cy.get('@foundItem')
-      .click({force: true});
-    cy.contains('.leaflet-popup-content', orphanageData.name)
-      .find('a')
-      .click({force: true});
+    cy.openOrphanage(orphanageData.name);
+
+
     cy.contains('h1', orphanageData.name)
       .should('be.visible');
 

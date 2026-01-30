@@ -11,18 +11,9 @@ describe('Cadastro Orfanatos', () => {
 
     cy.deleteMany({name: orphanageData.name}, {collection: 'orphanages'});
 
-    //CreatePage Go
-    createPage.go();
-
-    cy.setMapPosition(orphanageData.position);
-    
-    //CreatePage Form
-    createPage.form(orphanageData);
-    
-    //CreatePage Submit
-    createPage.submit();
-
-    mapPage.popup.haveText('Orfanato cadastrado com sucesso.');
+    cy.goToCreate();
+    cy.createOrphanage(orphanageData);
+    cy.popupHaveText('Orfanato cadastrado com sucesso.');
 
   });
 
@@ -38,18 +29,11 @@ describe('Cadastro Orfanatos', () => {
     //second registration with the same name
     cy.wait(2000); //wait for 2 seconds to avoid overlapping alerts
     
-    //CreatePage Go
-    createPage.go();
+    cy.goToCreate();
+    cy.createOrphanage(orphanageData);
 
-    cy.setMapPosition(orphanageData.position);
-    
-    //CreatePage Form
-    createPage.form(orphanageData);
-    
-    //CreatePage Submit
-    createPage.submit();
-
-    mapPage.popup.haveText('Já existe um cadastro com o nome: ' + orphanageData.name);
+    cy.popupHaveText('Já existe um cadastro com o nome: ' + orphanageData.name);
 
   });
+  
 });
