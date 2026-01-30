@@ -33,11 +33,11 @@ Cypress.Commands.add('postOrphanage', (orphanage) => {
       formData.append('latitude', orphanage.position.latitude);
       formData.append('longitude', orphanage.position.longitude);
       formData.append('opening_hours', orphanage.opening_hours);
-      formData.append('open_on_weekends', true);
+      formData.append('open_on_weekends', orphanage.open_on_weekends);
       formData.append('images', blob, orphanage.image);
 
       cy.request({
-        url: 'http://localhost:3333/orphanages',
+        url: Cypress.env('baseApiUrl') + '/orphanages',
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -47,4 +47,24 @@ Cypress.Commands.add('postOrphanage', (orphanage) => {
         expect(response.status).to.eq(201);
       });
     });
+});
+
+Cypress.Commands.add('popupHaveText', (text) => {
+    cy.get('.swal2-html-container')
+        .should('be.visible')
+        .should('have.text', text);
+});
+
+Cypress.Commands.add('alertHaveText', (label, text) => {
+  cy.contains('label', label)
+    .parent()
+    .find('small')
+    .should('have.text', text);
+});
+
+Cypress.Commands.add('googleMapLink', (position) => { 
+   const googleURL = `https://www.google.com/maps/dir/?api=1&destination=${position.latitude},${position.longitude}`;
+    
+    cy.contains('a', 'Ver rotas no Google Maps')
+      .should('have.attr', 'href', googleURL)
 });

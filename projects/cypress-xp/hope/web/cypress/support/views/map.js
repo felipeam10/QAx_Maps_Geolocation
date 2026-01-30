@@ -2,7 +2,7 @@ Cypress.Commands.add('openOrphanage', (name) => {
 
     const popup = '.leaflet-popup-content'
 
-    cy.visit('http://localhost:3000/map');
+    cy.visit('/map');
 
     cy.get('.leaflet-marker-icon').as('mapList');
 

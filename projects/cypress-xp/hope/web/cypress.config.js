@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const { defineConfig } = require("cypress");
 const { cypressBrowserPermissionsPlugin } = require('cypress-browser-permissions');
 const { configurePlugin } = require('cypress-mongodb');
@@ -11,14 +13,16 @@ module.exports = defineConfig({
       return config;
       
     },
+    baseUrl: process.env.BASE_URL,
     env: {
       browserPermissions: {
         notifications: 'allow',
         geolocation: 'allow',
       },
+      baseApiUrl: process.env.BASE_URL_API,
       mongodb: {
-            uri: 'mongodb+srv://qax:xperience@cluster0.grbw1ss.mongodb.net/HopeDB?appName=Cluster0',
-            database: 'HopeDB'
+            uri: process.env.MONGODB_URI,
+            database: process.env.DATABASE_NAME
         }
 
     },
