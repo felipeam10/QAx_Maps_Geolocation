@@ -1,6 +1,5 @@
 import './views/map'
 import './views/create'
-import './views/components'
 
 
 Cypress.Commands.add('setMapPosition', (position) => {

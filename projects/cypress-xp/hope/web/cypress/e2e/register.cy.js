@@ -3,6 +3,7 @@ import createPage from '../support/pages/create';
 import popup from '../support/pages/components/popup';
 import mapPage from '../support/pages/maps';
 import { map } from 'leaflet';
+import { generator } from '../support/factory';
 
 describe('Cadastro Orfanatos', () => {
   
@@ -11,7 +12,16 @@ describe('Cadastro Orfanatos', () => {
 
     cy.deleteMany({name: orphanageData.name}, {collection: 'orphanages'});
 
-    cy.goToCreate();
+    cy.goToCreate(orphanageData.position);
+    cy.createOrphanage(orphanageData);
+    cy.popupHaveText('Orfanato cadastrado com sucesso.');
+
+  });
+
+  it('should be able to register a mew orphanage 2', () => {
+    const orphanageData = generator();
+
+    cy.goToCreate(orphanageData.position);
     cy.createOrphanage(orphanageData);
     cy.popupHaveText('Orfanato cadastrado com sucesso.');
 
@@ -29,7 +39,7 @@ describe('Cadastro Orfanatos', () => {
     //second registration with the same name
     cy.wait(2000); //wait for 2 seconds to avoid overlapping alerts
     
-    cy.goToCreate();
+    cy.goToCreate(orphanageData.position);
     cy.createOrphanage(orphanageData);
 
     cy.popupHaveText('Já existe um cadastro com o nome: ' + orphanageData.name);
@@ -43,7 +53,7 @@ describe('Cadastro Orfanatos', () => {
 
       delete orphanageData.name;
       
-      cy.goToCreate();
+      cy.goToCreate(orphanageData.position);
       cy.createOrphanage(orphanageData);
       
       // label[contains(text(), "Nome")]/..//small
@@ -57,7 +67,7 @@ describe('Cadastro Orfanatos', () => {
 
       delete orphanageData.description;
       
-      cy.goToCreate();
+      cy.goToCreate(orphanageData.position);
       cy.createOrphanage(orphanageData);
       
       // label[contains(text(), "Nome")]/..//small
@@ -71,7 +81,7 @@ describe('Cadastro Orfanatos', () => {
 
       delete orphanageData.image;
       
-      cy.goToCreate();
+      cy.goToCreate(orphanageData.position);
       cy.createOrphanage(orphanageData);
       
       // label[contains(text(), "Nome")]/..//small
@@ -85,7 +95,7 @@ describe('Cadastro Orfanatos', () => {
 
       delete orphanageData.opening_hours;
 
-      cy.goToCreate();
+      cy.goToCreate(orphanageData.position);
       cy.createOrphanage(orphanageData);
       
       // label[contains(text(), "Nome")]/..//small
@@ -102,7 +112,7 @@ describe('Cadastro Orfanatos', () => {
       delete orphanageData.image;
       delete orphanageData.opening_hours;
 
-      cy.goToCreate();
+      cy.goToCreate(orphanageData.position);
       cy.createOrphanage(orphanageData);
       
       // label[contains(text(), "Nome")]/..//small

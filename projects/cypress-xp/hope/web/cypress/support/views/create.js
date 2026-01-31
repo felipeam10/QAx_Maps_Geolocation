@@ -1,5 +1,5 @@
-Cypress.Commands.add('goToCreate', () => {
-    cy.visit('/orphanages/create');
+Cypress.Commands.add('goToCreate', (position) => {
+    cy.visit('/orphanages/create', position.latitude, position.longitude);
         
     cy.get('legend')
         .should('be.visible')
